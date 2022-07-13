@@ -35,6 +35,8 @@ const Planets = () => {
   const { data, error } = useSWR('/planets', swGet);
 
   if (error) {
+    console.log(error);
+    
     return <div className="px-2">Oh oh!</div>;
   }
   if (!data) {
@@ -43,7 +45,7 @@ const Planets = () => {
 
   return (
     <div>
-      <Table columns={columns} data={data.results.slice(0, 3)} /* :D */ />
+      <Table columns={columns} data={data.results/*.slice(0, 3)*/} /* :D */ />
     </div>
   );
 };
